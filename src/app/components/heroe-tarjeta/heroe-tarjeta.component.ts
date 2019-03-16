@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class HeroeTarjetaComponent implements OnInit {
 
   @Input() heroe : any;
-  @Input() index : number;
+  //@Input() index : number;
 
   @Output() heroeSeleccionado: EventEmitter<number>;
 
@@ -21,7 +21,7 @@ export class HeroeTarjetaComponent implements OnInit {
   }
 
   verHeroe(){
-    this.router.navigate( ['/heroe', this.index] );
+    this.router.navigate(['/heroe', this.heroe.id]);
   }
 
 }
