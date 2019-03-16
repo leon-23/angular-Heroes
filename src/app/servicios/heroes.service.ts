@@ -30,16 +30,17 @@ export class HeroesService {
       return this.heroes[id];
   }
 
-  public buscarHeroes(term : string) : Heroe[]{
+  public buscarHeroes(term : string) : Observable<Heroe[]>{
 
-    let heroes : Heroe[] = new Array();
+    // let heroes : Heroe[] = new Array();
+    //
+    // this.heroes.forEach( x =>{
+    //     if(x.nombre.toLowerCase().indexOf(term.toLowerCase()) >= 0 )
+    //           heroes.push(x);
+    // });
+    // return heroes;
 
-    this.heroes.forEach( (x,i) =>{
-        if(x.nombre.toLowerCase().indexOf(term.toLowerCase()) >= 0 ){
-              x.id = i;
-              heroes.push(x);
-        }
-    });
-    return heroes;
+    return this.http.get(`${this.urlEndPoint}/buscar/${term}`)
+            .pipe(map(heroes => heroes as Heroe[]));
   }
 }

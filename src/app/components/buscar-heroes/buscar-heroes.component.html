@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="card-title text-center"> Super Heroes </h1>
+  <small class="text-center"> Dc and Marvel universe</small>
+</div>
+
+<div class="card-columns animated fadeIn fast">
+
+      <app-heroe-tarjeta (heroeSeleccionado)="verHeroe(heroe.id)" [heroe]="heroe" [index]="heroe.id"
+                          *ngFor="let heroe of heroes;" >
+      </app-heroe-tarjeta>
+
+</div>
